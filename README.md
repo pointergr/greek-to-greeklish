@@ -63,35 +63,18 @@ echo $converter->convert('Ελλάδα');   // Ellada
 echo $converter->convert('ΕλΛάΔα');   // ElLaDa
 ```
 
-### Testing Functionality
-
-The library includes a comprehensive test suite to verify correct transliteration:
-
-```php
-$converter = new GreekToGreeklish();
-$results = $converter->runTests();
-
-echo "Tests passed: {$results['passedTests']} of {$results['totalTests']}";
-echo "Success rate: {$results['successRate']}%";
-
-// Access detailed test results
-foreach ($results['results'] as $result) {
-    echo "Original: {$result['original']}\n";
-    echo "Expected: {$result['expected']}\n";
-    echo "Actual: {$result['actual']}\n";
-    echo "Passed: " . ($result['passed'] ? 'Yes' : 'No') . "\n";
-    
-    if (!$result['passed']) {
-        echo "Difference: {$result['diff']}\n";
-    }
-    
-    echo "\n";
-}
-```
-
 ## Testing
 
-The package comes with PHPUnit tests to ensure the conversion is working correctly:
+The library includes a comprehensive test suite with over 100 test cases that verify correct transliteration in various scenarios:
+
+- Single words
+- Special characters
+- Different casing (uppercase, lowercase, mixed)
+- Diphthongs
+- Special letter combinations
+- Complete sentences
+
+To run the tests:
 
 ```bash
 # Install dev dependencies
@@ -106,6 +89,8 @@ You can also run the tests directly with PHPUnit:
 ```bash
 ./vendor/bin/phpunit
 ```
+
+This extensive testing ensures that the transliteration is reliable and consistent across all Greek language edge cases.
 
 ## Transliteration Rules
 

@@ -25,7 +25,24 @@ $greeklish = $converter->convert($greek);
 echo "Original: $greek\n";
 echo "Greeklish: $greeklish\n\n";
 
-// Run tests to verify conversions
-echo "Running tests...\n";
-$testResults = $converter->runTests();
-echo "Passed: {$testResults['passedTests']} of {$testResults['totalTests']} tests ({$testResults['successRate']}%)\n";
+// Convert different cases
+$greek = "ΕΛΛΑΔΑ";
+$greeklish = $converter->convert($greek);
+echo "Original: $greek\n";
+echo "Greeklish: $greeklish\n\n";
+
+// Convert special diphthongs
+$examples = [
+    "Αυτοκίνητο" => "Converts 'αυ' before consonant",
+    "Ευάγγελος" => "Converts 'ευ' before vowel",
+    "Μπάλα" => "Converts 'μπ' at beginning",
+    "Έμπορος" => "Converts 'μπ' within word",
+    "Άγγελος" => "Converts 'γγ' to 'ng'",
+    "Τσάντα" => "Converts 'τσ' to 'ts'"
+];
+
+echo "Special diphthong examples:\n";
+foreach ($examples as $word => $desc) {
+    $greeklish = $converter->convert($word);
+    echo "$word -> $greeklish ($desc)\n";
+}
