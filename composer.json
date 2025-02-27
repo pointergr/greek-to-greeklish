@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=7.2.5",
         "ext-mbstring": "*"
     },
     "require-dev": {
@@ -30,5 +30,14 @@
     },
     "scripts": {
         "test": "phpunit tests"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "platform-check": true,
+        "platform": {
+            "php": "7.2.5"
+        }
     }
 }
